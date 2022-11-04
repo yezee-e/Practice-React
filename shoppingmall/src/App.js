@@ -7,6 +7,7 @@ import Event from './routes/Event';
 import data from './data.js';
 import ShoppingList from './component/ShoppingList';
 import axios from 'axios';
+import Cart from './routes/Cart';
 
 function App() {
   let navigate = useNavigate();
@@ -48,7 +49,13 @@ function App() {
             >
               Event
             </Nav.Link>
-            <Nav.Link href='#pricing'>Pricing</Nav.Link>
+            <Nav.Link
+              onClick={(e) => {
+                navigate('/cart');
+              }}
+            >
+              cart
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
@@ -90,6 +97,7 @@ function App() {
         </Route>
 
         <Route path='*' element={<div>잘못된 페이지입니다</div>} />
+        <Route path='/cart' element={<Cart />} />
       </Routes>
     </div>
   );

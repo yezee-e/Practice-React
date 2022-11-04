@@ -1,0 +1,83 @@
+.wrap {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.dropdown {
+  width: 400px;
+  margin: 0 50px;
+  position: relative;
+  border-bottom: 1px solid lightgray;
+
+  .dropdown-btn {
+    padding: 15px 20px;
+    background: #fff;
+
+    font-weight: bold;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  .dropdown-content {
+    // position: absolute;
+    top: 110%;
+    padding: 10px;
+    background: #fff;
+    font-weight: 500;
+    color: #333;
+    width: 100%;
+  }
+  input[type='checkbox'] {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 1.5px solid #999;
+    appearance: none;
+    cursor: pointer;
+    margin-right: 5px;
+    position: relative;
+    content: '✓';
+  }
+  input[type='checkbox']:checked {
+    border: none;
+    background-color: rgb(95, 0, 128);
+  }
+
+  input[type='checkbox']:checked::after {
+    content: '✓';
+    text-align: center;
+    font-size: 1px;
+    color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    left: 0;
+    border: none;
+  }
+}
+
+// .dropIcon {
+//   animation: dropIcon-spin 250ms ease-out;
+// }
+
+// @keyframes dropIcon-spin {
+//   from {
+//     transform: rotate(0deg);
+//   }
+//   to {
+//     transform: rotate(-180deg);
+//   }
+// }
+
+.dropdown .dropdown-content .dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+.dropdown-btn:hover {
+  color: rgb(95, 0, 128);
+}
+.dropdown-content .dropdown-item:hover {
+  color: rgb(95, 0, 128);
+}

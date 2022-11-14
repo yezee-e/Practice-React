@@ -1,0 +1,19 @@
+.product-img {
+  display: flex;
+  justify-content: flex-end;
+  height: 400px;
+}
+.product-info {
+  margin-left: 50px;
+  .size-btn {
+    border: 1px solid lightgrey;
+    :focus {
+      border: 1px solid lightgrey;
+    }
+  }
+
+  .add-btn {
+    margin-top: 30px;
+    width: 150px;
+  }
+}

@@ -1,0 +1,15 @@
+#card {
+  .card-imgWrap {
+    overflow: hidden;
+
+    :hover {
+      transform: scale(1.2);
+    }
+  }
+  .card-img {
+    transition: all 0.2s linear;
+    width: 304px;
+    height: 450px;
+    max-width: 100%;
+  }
+}

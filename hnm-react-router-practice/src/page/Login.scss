@@ -1,0 +1,20 @@
+.login {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  input {
+    width: 500px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+  }
+  button {
+    margin-top: 20px;
+    color: white;
+    border: none;
+    background-color: hotpink;
+    border-radius: 4px;
+  }
+}

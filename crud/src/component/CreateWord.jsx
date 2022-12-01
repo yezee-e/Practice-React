@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 function CreateWord() {
-  const days = useFetch('http://localhost:3004/days');
+  const days = useFetch(
+    'https://my-json-server.typicode.com/yezee-e/Practice-React/days'
+  );
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false); //통신중에는 버튼을 여러번 눌릴수없도록
 
@@ -12,19 +14,22 @@ function CreateWord() {
 
     if (!isLoading) {
       setIsLoading(true); //fetch 완료되기 전까지 로딩중으로 변경
-      fetch(`http://localhost:3004/words/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json', //보내는 리소스의 타입을 의미
-        },
-        body: JSON.stringify({
-          //추가할 정보를 body에 넣어준다
-          day: dayRef.current.value,
-          eng: engRef.current.value,
-          kor: korRef.current.value,
-          isDone: false,
-        }),
-      }).then((res) => {
+      fetch(
+        `https://my-json-server.typicode.com/yezee-e/Practice-React/words/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json', //보내는 리소스의 타입을 의미
+          },
+          body: JSON.stringify({
+            //추가할 정보를 body에 넣어준다
+            day: dayRef.current.value,
+            eng: engRef.current.value,
+            kor: korRef.current.value,
+            isDone: false,
+          }),
+        }
+      ).then((res) => {
         if (res.ok) {
           alert('생성이 완료 되었습니다');
           navigate(`/day/${dayRef.current.value}`); //단어를 저징한 해당페이지로 이동

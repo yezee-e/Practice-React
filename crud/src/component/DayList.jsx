@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 function DayList() {
-  const days = useFetch('http://localhost:3004/days');
+  const days = useFetch(
+    'https://my-json-server.typicode.com/yezee-e/Practice-React/days'
+  );
 
   if (days.length === 0) {
     //로딩이 느릴경우(network에 slow3G로 확인해볼수있다)

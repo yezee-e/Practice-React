@@ -3,10 +3,12 @@ import { Navigate } from 'react-router-dom';
 import useFetch from '../hooks/useFetch';
 
 function CreateDay() {
-  const days = useFetch('http://localhost:3004/days');
+  const days = useFetch(
+    'https://my-json-server.typicode.com/yezee-e/Practice-React/days'
+  );
 
   function addDay() {
-    fetch(`http://localhost:3004/days`, {
+    fetch(`https://my-json-server.typicode.com/yezee-e/Practice-React/days`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json', //보내는 리소스의 타입을 의미

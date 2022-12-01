@@ -12,17 +12,20 @@ function Word({ word: w }) {
 
   //수정
   const toggleDone = () => {
-    fetch(`http://localhost:3004/words/${word.id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json', //보내는 리소스의 타입을 의미
-      },
-      body: JSON.stringify({
-        //수정을 위한 정보를 body에 넣어준다
-        ...word, //기존데이터에
-        isDone: !isDone, //수정되는 값을 추가
-      }),
-    }).then((res) => {
+    fetch(
+      `https://my-json-server.typicode.com/yezee-e/Practice-React/words/${word.id}`,
+      {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json', //보내는 리소스의 타입을 의미
+        },
+        body: JSON.stringify({
+          //수정을 위한 정보를 body에 넣어준다
+          ...word, //기존데이터에
+          isDone: !isDone, //수정되는 값을 추가
+        }),
+      }
+    ).then((res) => {
       if (res.ok) {
         setIsDone(!isDone);
       }

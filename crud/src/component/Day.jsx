@@ -6,7 +6,9 @@ import Word from './Word';
 function Day() {
   const { day } = useParams();
 
-  const words = useFetch(`http://localhost:3004/words?day=${day}`);
+  const words = useFetch(
+    `https://my-json-server.typicode.com/yezee-e/Practice-React/words?day=${day}`
+  );
 
   return (
     <>

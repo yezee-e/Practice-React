@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Col, Container, Dropdown, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { productDetailAction } from '../redux/actions/productDetailAction';
 import './ProductsDetail.scss';
 
 function ProductsDetail() {
-  const [product, setProduct] = useState([]);
+  const productDetail = useSelector((state) => state.detail.productDetail);
+  const dispatch = useDispatch();
 
   const { id } = useParams();
 
-  const getProductDetail = async () => {
-    let url = `http://localhost:3004/products/${id}`;
-
-    let res = await fetch(url);
-    let data = await res.json();
-    setProduct(data);
+  const getProductDetail = () => {
+    dispatch(productDetailAction.getProductDetail(id));
   };
 
   useEffect(() => {
@@ -24,11 +23,11 @@ function ProductsDetail() {
     <Container>
       <Row>
         <Col className='product-img'>
-          <img src={product?.img} alt='제품상세사진' />
+          <img src={productDetail?.img} alt='제품상세사진' />
         </Col>
         <Col className='product-info'>
-          <div>{product?.title}</div>
-          <div>$ {product?.price}</div>
+          <div>{productDetail?.title}</div>
+          <div>$ {productDetail?.price}</div>
           <Dropdown>
             <Dropdown.Toggle
               id='dropdown-button-dark-example1'

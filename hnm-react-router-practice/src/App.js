@@ -25,22 +25,11 @@ function App() {
 
   return (
     <>
-      <Navbar authenticate={authenticate} />
+      <Navbar />
       <Routes>
         <Route path='/' element={<ProductAll />} />
-        <Route
-          path='/login'
-          element={
-            <Login
-              setAuthenticate={setAuthenticate}
-              authenticate={authenticate}
-            />
-          }
-        />
-        <Route
-          path='/product/:id'
-          element={<Authenticate authenticate={authenticate} />}
-        />
+        <Route path='/login' element={<Login />} />
+        <Route path='/product/:id' element={<Authenticate />} />
       </Routes>
     </>
   );

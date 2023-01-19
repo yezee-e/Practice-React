@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import ProductCard from '../component/ProductCard';
+import { productAction } from '../redux/actions/productAction';
 
 function ProductAll() {
-  const [productList, setProductsList] = useState([]);
-  const [query, setQuery] = useSearchParams([]);
+  const productList = useSelector((state) => state.product.productList);
+  const dispatch = useDispatch();
+  const [query, setQuery] = useSearchParams('');
 
-  const getProducts = async () => {
+  const getProducts = () => {
     let searchQuery = query.get('search');
-    console.log('쿼리값은?', searchQuery);
-    let url = `http://localhost:3004/products?search=${searchQuery}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductsList(data);
+    dispatch(productAction.getProducts(searchQuery));
+    //dispatch를 store로 바로 보내는게 아니라 미들웨어를 거칠 수 있도록 작업
   };
   useEffect(() => {
     getProducts();

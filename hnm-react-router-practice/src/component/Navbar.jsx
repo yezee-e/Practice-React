@@ -11,7 +11,8 @@ function Navbar({ authenticate }) {
       //입력한 검색어를 읽어와서
       let keyword = e.target.value;
       //url을 바꿔준다(쿼리)
-      navigate(`?search=${keyword}`);
+      navigate(`/?search=${keyword}`);
+      console.log('search', keyword);
     }
   };
   const menuList = [

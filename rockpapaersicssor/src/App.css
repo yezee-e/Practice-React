@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.title {
+  text-align: center;
+}
+
+.box {
+  border: 1px solid black;
+  width: 500px;
+  text-align: center;
+}
+.item-img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 50px;
+}
+
+button {
+  background-color: inherit;
+  border: none;
+}
+
+.Win {
+  border: 10px solid green;
+  color: green;
+}
+.Lose {
+  border: 10px solid red;
+  color: red;
+}
+.tie {
+  border: 10px solid black;
+  color: black;
+}
